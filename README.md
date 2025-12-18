@@ -9,12 +9,26 @@ A Next.js web application with three routes: Home (/), Login (/login), and Regis
 npm install
 ```
 
-2. Run the development server:
+2. Make sure your backend is running on `http://localhost:3000`
+
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application.
+Open [http://localhost:3002](http://localhost:3002) to view the application.
+
+## Backend Proxy Configuration
+
+The frontend is configured to proxy API requests to your backend:
+
+- **Frontend**: `http://localhost:3002`
+- **Backend**: `http://localhost:3000`
+- **API Routes**: `/auth/*` and `/user/*` are proxied to the backend
+
+The proxy configuration in `next.config.js` automatically forwards:
+- `/auth/login` → `http://localhost:3000/auth/login`
+- `/user/register` → `http://localhost:3000/user/register`
 
 ## Project Structure
 

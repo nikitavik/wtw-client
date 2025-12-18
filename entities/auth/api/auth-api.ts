@@ -1,6 +1,6 @@
 import { LoginRequest, RegisterRequest, AuthResponse, ApiError } from './types'
 
-const API_BASE_URL = 'http://localhost:3000'
+const API_BASE_URL = '' // Use relative URLs for proxying
 
 class AuthApi {
   private async request<T>(
@@ -29,7 +29,7 @@ class AuthApi {
   }
 
   async login(credentials: LoginRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/auth/login', {
+    return this.request<AuthResponse>('/user/login', {
       method: 'POST',
       body: JSON.stringify(credentials),
     })
