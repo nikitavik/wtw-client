@@ -29,14 +29,14 @@ class AuthApi {
   }
 
   async login(credentials: LoginRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/user/login', {
+    return this.request<AuthResponse>('/api/user/login', {
       method: 'POST',
       body: JSON.stringify(credentials),
     })
   }
 
   async register(userData: RegisterRequest): Promise<AuthResponse> {
-    return this.request<AuthResponse>('/user/register', {
+    return this.request<AuthResponse>('/api/user/register', {
       method: 'POST',
       body: JSON.stringify(userData),
     })

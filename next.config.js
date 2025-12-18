@@ -6,18 +6,10 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:3000/api/:path*',
+        source: '/api/:path*', // Match incoming requests to /api/*
+        destination: 'http://localhost:3000/:path*', // Proxy to your backend server
       },
-      {
-        source: '/auth/:path*',
-        destination: 'http://localhost:3000/auth/:path*',
-      },
-      {
-        source: '/user/:path*',
-        destination: 'http://localhost:3000/user/:path*',
-      },
-    ]
+    ];
   },
 }
 

@@ -1,6 +1,7 @@
 'use client'
 
 import { isAuthenticated } from '@/shared/lib'
+import { debugTokenStorage } from '@/entities/auth'
 
 export default function Home() {
   const authenticated = isAuthenticated()
@@ -20,9 +21,15 @@ export default function Home() {
             <h2 className="text-xl font-semibold text-green-800 mb-2">
               ✅ You are logged in!
             </h2>
-            <p className="text-green-700">
+            <p className="text-green-700 mb-4">
               Welcome back! You can now access authenticated features.
             </p>
+            <button
+              onClick={debugTokenStorage}
+              className="bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md transition-colors"
+            >
+              Debug Token
+            </button>
           </div>
         ) : (
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
