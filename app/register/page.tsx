@@ -29,21 +29,22 @@ export default function Register() {
   }
 
   return (
-    <main className="min-h-screen p-8 bg-gray-50 flex items-center justify-center">
-      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold mb-8 text-center text-gray-900">Register</h1>
+    <main className="bg-gray-50 flex items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-sm border border-gray-200">
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-semibold mb-2 text-gray-900">Register</h1>
+          <p className="text-gray-500 text-sm">Create a new account</p>
+        </div>
 
         {registerMutation.isError && (
-          <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-md">
-            <p className="text-red-600 text-sm">
-              {registerMutation.error?.message || 'Registration failed. Please try again.'}
-            </p>
+          <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded text-red-700 text-sm">
+            {registerMutation.error?.message || 'Registration failed. Please try again.'}
           </div>
         )}
 
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
               Email
             </label>
             <input
@@ -51,12 +52,13 @@ export default function Register() {
               id="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-gray-400"
+              placeholder="you@example.com"
               required
             />
           </div>
           <div>
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
               Password
             </label>
             <input
@@ -64,12 +66,13 @@ export default function Register() {
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-gray-400"
+              placeholder="••••••••"
               required
             />
           </div>
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-2">
+            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
               Confirm Password
             </label>
             <input
@@ -77,20 +80,24 @@ export default function Register() {
               id="confirmPassword"
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-colors"
+              className="w-full px-3 py-2 border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-gray-400 focus:border-gray-400"
+              placeholder="••••••••"
               required
             />
           </div>
           <button
             type="submit"
             disabled={registerMutation.isPending}
-            className="w-full bg-green-500 hover:bg-green-600 disabled:bg-green-300 text-white font-medium py-3 px-4 rounded-md transition-colors focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 disabled:cursor-not-allowed"
+            className="w-full bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white font-medium py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-1 disabled:cursor-not-allowed"
           >
             {registerMutation.isPending ? 'Registering...' : 'Register'}
           </button>
         </form>
-        <p className="mt-6 text-center text-gray-600">
-          Already have an account? Use the navigation to login.
+        <p className="mt-6 text-center text-gray-600 text-sm">
+          Already have an account?{' '}
+          <a href="/login" className="text-gray-900 hover:underline font-medium">
+            Login
+          </a>
         </p>
       </div>
     </main>

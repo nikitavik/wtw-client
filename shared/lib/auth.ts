@@ -35,3 +35,5 @@ export const getAuthHeaders = () => {
   const token = getAuthToken()
   return token ? { Authorization: `Bearer ${token}` } : {}
 }
+
+
