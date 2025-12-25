@@ -1,15 +1,14 @@
-export { movieApi } from './movie-api'
 export {
-  useMovies,
   useMovie,
+  useMovies,
   useMoviesCount,
   useMoviesPage,
-} from './hooks'
+} from './hooks';
+export { movieApi } from './movie-api';
 export type {
-  Movie,
-  PaginationMeta,
-  PaginatedMoviesResponse,
-  GetMoviesParams,
   ApiError,
-} from './types'
-
+  GetMoviesParams,
+  Movie,
+  PaginatedMoviesResponse,
+  PaginationMeta,
+} from './types';

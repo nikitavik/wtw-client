@@ -1,9 +1,9 @@
-'use client'
+'use client';
 
-import { Navigation } from '@/shared/ui'
+import { Navigation } from '@/shared/ui';
 
 interface ClientLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export function ClientLayout({ children }: ClientLayoutProps) {
@@ -12,7 +12,5 @@ export function ClientLayout({ children }: ClientLayoutProps) {
       <Navigation />
       {children}
     </>
-  )
+  );
 }
-
-

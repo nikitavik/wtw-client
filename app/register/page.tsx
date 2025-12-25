@@ -1,32 +1,32 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRegister } from '@/entities/auth'
+import { useState } from 'react';
+import { useRegister } from '@/entities/auth';
 
 export default function Register() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
-  const registerMutation = useRegister()
+  const registerMutation = useRegister();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
 
     if (password !== confirmPassword) {
-      alert('Passwords do not match')
-      return
+      alert('Passwords do not match');
+      return;
     }
 
     try {
-      await registerMutation.mutateAsync({ email, password })
+      await registerMutation.mutateAsync({ email, password });
       // Redirect to home or dashboard on success
-      window.location.href = '/'
+      window.location.href = '/';
     } catch (error) {
-      console.error('Registration failed:', error)
+      console.error('Registration failed:', error);
       // Handle error (show toast, etc.)
     }
-  }
+  };
 
   return (
     <main className="bg-gray-50 flex items-center justify-center p-4">
@@ -72,7 +72,10 @@ export default function Register() {
             />
           </div>
           <div>
-            <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700 mb-1">
+            <label
+              htmlFor="confirmPassword"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
               Confirm Password
             </label>
             <input
@@ -101,5 +104,5 @@ export default function Register() {
         </p>
       </div>
     </main>
-  )
+  );
 }

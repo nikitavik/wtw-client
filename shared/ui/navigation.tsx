@@ -1,16 +1,16 @@
-'use client'
+'use client';
 
-import { isAuthenticated } from '@/shared/lib'
-import { useLogout } from '@/entities/auth'
+import { useLogout } from '@/entities/auth';
+import { isAuthenticated } from '@/shared/lib';
 
 export function Navigation() {
-  const logout = useLogout()
-  const authenticated = isAuthenticated()
+  const logout = useLogout();
+  const authenticated = isAuthenticated();
 
   const handleLogout = () => {
-    logout()
-    window.location.href = '/'
-  }
+    logout();
+    window.location.href = '/';
+  };
 
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -24,6 +24,7 @@ export function Navigation() {
           </a>
           {authenticated ? (
             <button
+              type="button"
               onClick={handleLogout}
               className="text-gray-700 hover:text-gray-900 font-medium bg-transparent border-none cursor-pointer"
             >
@@ -34,7 +35,10 @@ export function Navigation() {
               <a href="/login" className="text-gray-700 hover:text-gray-900 font-medium">
                 Login
               </a>
-              <a href="/register" className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded">
+              <a
+                href="/register"
+                className="bg-gray-900 hover:bg-gray-800 text-white font-medium px-4 py-2 rounded"
+              >
                 Register
               </a>
             </>
@@ -42,5 +46,5 @@ export function Navigation() {
         </div>
       </div>
     </nav>
-  )
+  );
 }

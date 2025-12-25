@@ -1,25 +1,25 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useLogin } from '@/entities/auth'
+import { useState } from 'react';
+import { useLogin } from '@/entities/auth';
 
 export default function Login() {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const loginMutation = useLogin()
+  const loginMutation = useLogin();
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await loginMutation.mutateAsync({ email, password })
+      await loginMutation.mutateAsync({ email, password });
       // Redirect to home or dashboard on success
-      window.location.href = '/'
+      window.location.href = '/';
     } catch (error) {
-      console.error('Login failed:', error)
+      console.error('Login failed:', error);
       // Handle error (show toast, etc.)
     }
-  }
+  };
 
   return (
     <main className="bg-gray-50 flex items-center justify-center p-4">
@@ -80,5 +80,5 @@ export default function Login() {
         </p>
       </div>
     </main>
-  )
+  );
 }

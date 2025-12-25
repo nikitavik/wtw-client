@@ -1,18 +1,18 @@
 export interface LoginRequest {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 export interface RegisterRequest {
-  email: string
-  password: string
+  email: string;
+  password: string;
 }
 
 export interface AuthResponse {
-  access_token: string
+  access_token: string;
 }
 
 export interface ApiError {
-  message: string
-  status?: number
+  message: string;
+  status?: number;
 }
