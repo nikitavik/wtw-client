@@ -1,8 +1,8 @@
+// Use an env var so rewrites work across environments without code changes.
+const backendUrl = process.env.BACKEND_URL;
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    appDir: true,
-  },
   images: {
     remotePatterns: [
       {
@@ -15,7 +15,7 @@ const nextConfig = {
     return [
       {
         source: '/api/:path*', // Match incoming requests to /api/*
-        destination: 'http://localhost:3000/:path*', // Proxy to your backend server
+        destination: `${backendUrl}/:path*`, // Proxy to your backend server
       },
     ];
   },
