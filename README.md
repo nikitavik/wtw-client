@@ -5,6 +5,7 @@ A Next.js web application with three routes: Home (/), Login (/login), and Regis
 ## Getting Started
 
 1. Install dependencies:
+
 ```bash
 npm install
 ```
@@ -12,6 +13,7 @@ npm install
 2. Make sure your backend is running on `http://localhost:3000`
 
 3. Run the development server:
+
 ```bash
 npm run dev
 ```
@@ -27,6 +29,7 @@ The frontend is configured to proxy API requests to your backend:
 - **API Routes**: `/auth/*` and `/user/*` are proxied to the backend
 
 The proxy configuration in `next.config.js` automatically forwards:
+
 - `/auth/login` → `http://localhost:3000/auth/login`
 - `/user/register` → `http://localhost:3000/user/register`
 
@@ -45,3 +48,6 @@ This project follows Feature-Sliced Design (FSD) architecture:
 - `/` - Home page
 - `/login` - User login page
 - `/register` - User registration page
+
+##Figma
+https://www.figma.com/make/wW9yyUS4DyNJmpnvmhZFx5/What-to-watch?p=f
